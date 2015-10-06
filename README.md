@@ -8,3 +8,5 @@ meteor add mdg:camera
 
 Add the platform
 meteor add-platform android
+
+meteor run android-device
