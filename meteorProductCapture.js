@@ -19,6 +19,7 @@ function onDeviceReady() {
 
 	   );
  
+	 document.removeEventListener("deviceready", onDeviceReady, false);
 }
 
 
@@ -34,22 +35,9 @@ if (Meteor.isCordova) {
   Template.scanBarcode.events({
     'click button': function () {
     // scanner is not calling me back. I am getting called back to the ondeviceready
-    
-	cordova.plugins.barcodeScanner.scan(
-	function (result) {
-          alert("We got a barcode\n" +
-            "Result: " + result.text + "\n" +
-            "Format: " + result.format + "\n" +
-            "Cancelled: " + result.cancelled);
-            if (!result.cancelled) {
-		      	 Session.set("barcode", result.text);
-		      	 }
-        }, 
-        function (error) {
-          alert("Scanning failed: " + error);
-        }
-
-	   );
+   
+    	document.addEventListener("deviceready", onDeviceReady, false);
+     
     }
    });
   
@@ -61,7 +49,7 @@ if (Meteor.isClient) {
   Meteor.startup(function () {
     // code to run on client at startup
     // Wait for Cordova to load
-	//document.addEventListener("deviceready", onDeviceReady, false);
+	document.addEventListener("deviceready", onDeviceReady, false);
 		
   });
   
