@@ -3,15 +3,8 @@
 </head>
 
 <body>
-  <h1>Product Capture Tool</h1>
-  <form id="captureProduct">
-  <h2>Press capture buttons in any order</h2>
+<form id="captureProduct">
   {{> scanBarcode}}
-  {{> takePackagePhoto}}
-  {{> takeIngredientsPhoto}}
-  {{> takeNotes}}
-  <h2>Submit to database</h2>
-  <input type="submit" id="submitButton" name="action" title="Submit" value="Submit" />
   </form>
 </body>
 
@@ -24,26 +17,3 @@
     {{/if}}
 </template>
 
-<template name="takePackagePhoto"> 
- <button>Take Package Photo</button> 
- {{#if photo1}}
-    <div>
-      <img src={{photo1}} />
-    </div>
-  {{/if}}
-</template>
-
-<template name="takeIngredientsPhoto"> 
- <button>Take Ingredients Photo</button> 
- {{#if photo2}}
-    <div>
-      <img src={{photo2}} />
-    </div>
-  {{/if}}
-</template>
-
-
-<template name="takeNotes">
- <h2>Write a note:</h2>
- <textarea name="notes" rows="5" cols="60" placeholder=""></textarea>
-</template>
